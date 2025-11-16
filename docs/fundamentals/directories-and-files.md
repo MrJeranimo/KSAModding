@@ -4,7 +4,7 @@
 
 **Location:** `C:\Users\[YourName]\AppData\Local\Programs\Kitten Space Agency\`
 
-### Content\Core\
+### Core Directory
 
 Where all the game assets live:
 
