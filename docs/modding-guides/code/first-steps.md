@@ -110,7 +110,7 @@ namespace FirstMod
 
 IStarMapMod requires you to implement 3 functions
 
-- `public void OnImmediatLoad()`
+- `public void OnImmediateLoad()`
 - `public void OnFullyLoaded()`
 - `public void Unload()`
 
