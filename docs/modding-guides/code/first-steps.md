@@ -123,7 +123,7 @@ namespace FirstMod
 {
     public class FirstMod : IStarMapMod
     {
-        public void OnImmediatLoad()
+        public void OnImmediateLoad()
         {
 
         }
