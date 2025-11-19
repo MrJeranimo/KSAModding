@@ -1,4 +1,4 @@
-# Code
+# Getting started with writing Code for KSA
 
 !!! warning "Unofficial project"
     There is currently no official way to add custom code to Kitten Space Agency. The tools used in this guide are developed by the community. They are not affiliated with or endorsed by the KSA developers.
@@ -83,9 +83,20 @@ We will have to add a custom Package Source to nuget to be able to use StarMap
 6. Wait for the instal to finish
 ![Install Lib.Harmony](/KSAModding/assets/images/modding-guides/code/install-harmony.png)
 
+## Step 2: Adding dependencies
 
+When using StarMap to mod the game you will eventually need external resources from the game itself called assemblies or .dll files. For a basic mod you only need one dependency: KSA.dll. So this first-steps guide will do just that.
 
-## Step 2: Creating a IStarMapMod class
+1. Right click on dependencies
+2. Press Add Project Reference
+![add project reference](/KSAModding/assets/images/modding-guides/code/add-project-reference.png)
+
+1. Press Browse
+2. Now go to the KSA install directory (default: C:\Program Files\Kitten Space Agency) and find KSA.dll, Select it and click add
+3. Press OK
+![alt text](/KSAModding/assets/images/modding-guides/code/browse-for-reference.png)
+
+## Step 3: Creating a Mod class
 
 StarMap automatically loads the class with the same name as the .dll file and that has the `[StarMapMod]` attribute
 
@@ -112,9 +123,12 @@ namespace FirstMod
 The api exposes a couple of attributes but for this simple hello world example we only need one:
 `[StarMapImmediateLoad]`. The function marked with this attribute will be run when the mod is loaded. The function this attribute is assigned to does need to take in `Mod definingMod` as a parameter.
 
+The `Mod` class needs the `KSA` namespace (found in KSA.dll) so we will add `using KSA` on the top of the file.
+
 
 ```c#
 using StarMap.API;
+using KSA;
 
 namespace FirstMod
 {
@@ -144,7 +158,7 @@ public void Init(Mod definingMod)
 }
 ```
 
-## Step 3: Creating mod.toml
+## Step 4: Creating mod.toml
 
 A mod should always have a mod.toml file so it can be identified by StarMap. Lets Create that file.
 
@@ -158,7 +172,7 @@ name = "FirstMod"
 4. Under properties there is a field called `Copy To Output Directory` set it to `Copy always`.
 
 
-## Step 4: Compiling
+## Step 5: Compiling
 
 If you did all steps correctly simply right clicking the project and selecting `Build` should build the files.
 
